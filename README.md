@@ -1,2 +1,2 @@
 # bitrat.github.io
-Bitrat.Tech Blog
+Bitrat.Tech - Digital Mechanixs Blog

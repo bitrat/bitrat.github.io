@@ -112,8 +112,8 @@ paginate = "10" # Number of posts per page
     url = "/tags/another-category2"
     parent = "another-category"
     weight = 2
-  [[menu.main]]
-    identifier = "about"
-    name = "About Us"
-    url = "/about/"
-    weight = 4
+ # [[menu.main]]
+ #   identifier = "about"
+ #   name = "About Us"
+ #   url = "/about/"
+ #   weight = 4

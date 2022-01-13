@@ -13,11 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-<<<<<<< HEAD
-        uses: actions/checkout@v2.3.4
-=======
-        uses: actions/checkout@v2
->>>>>>> 8012967d76e36f918ac28da8a4fcfd0eef9822a8
+        uses: actions/checkout@v1
         with:
           submodules: false
           fetch-depth: 0

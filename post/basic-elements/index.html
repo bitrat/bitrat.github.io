@@ -33,6 +33,59 @@
 </button>
 <ul class=menu__list>
 <li class=menu__item>
+<a class=menu__link href=/>
+<span class=menu__text>Home</span>
+</a>
+</li>
+<li class="menu__item menu__dropdown">
+<a class=menu__link href=/category>
+<span class=menu__text>Category</span>
+<label class=drop-icon for=Category>▾</label>
+</a>
+<input type=checkbox id=Category>
+<ul class=submenu__list>
+<li class=menu__item>
+<a class=menu__link href=/tags/category1>
+<span class=menu__text>Category1</span>
+</a>
+</li>
+<li class=menu__item>
+<a class=menu__link href=/tags/category2>
+<span class=menu__text>Category2</span>
+</a>
+</li>
+<li class=menu__item>
+<a class=menu__link href=/tags/category3>
+<span class=menu__text>Category3</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="menu__item menu__dropdown">
+<a class=menu__link href=/another-category>
+<span class=menu__text>Another Category</span>
+<label class=drop-icon for="Another Category">▾</label>
+</a>
+<input type=checkbox id="Another Category">
+<ul class=submenu__list>
+<li class=menu__item>
+<a class=menu__link href=/tags/another-category1>
+<span class=menu__text>Another Category1</span>
+</a>
+</li>
+<li class=menu__item>
+<a class=menu__link href=/tags/another-category2>
+<span class=menu__text>Another Category2</span>
+</a>
+</li>
+</ul>
+</li>
+<li class=menu__item>
+<a class=menu__link href=/about/>
+<span class=menu__text>About Us</span>
+</a>
+</li>
+<li class=menu__item>
 <a class=menu__link href=/post/migrate-from-jekyll/>
 <span class=menu__text>Jekyll migration</span>
 </a>

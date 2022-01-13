@@ -1,2 +1,2 @@
 # bitrat.github.io
-Bitrat.Tech website
+Bitrat.Tech Blog

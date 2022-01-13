@@ -1,16 +1,16 @@
 baseURL = 'https://bitrat.github.io/'
 languageCode = 'en-us'
-title = 'Bitrat.Tech - Digital Mechanics Blog'
+title = 'Bitrat.Tech - Digital Mechanixs Blog'
 theme = "mainroad"
 paginate = "10" # Number of posts per page
 
 [Author] # Used in authorbox
-  name = "Bitrat.Tech - Digital Mechanics Blog"
+  name = "Bitrat.Tech - Digital Mechanixs Blog"
   bio = "Data - Databases - Networks - Automation"
   avatar = "img/BitratTechIllustration.png"
 
 [params]
-  description = "Bitrat.Tech - Digital Mechanics Blog" # Site description. Used in meta description
+  description = "Bitrat.Tech - Digital Mechanixs Blog" # Site description. Used in meta description
   copyright = "bitrat.tech" # Footer copyright holder, otherwise will use site title
   opengraph = true # Enable OpenGraph if true
   schema = true # Enable Schema
@@ -39,7 +39,7 @@ paginate = "10" # Number of posts per page
 [Params.logo]
   image = "img/BitratTechIllustration.png" # Logo image. Path relative to "static"
   title = "Bitrat.Tech" # Logo title, otherwise will use site title
-  subtitle = "Digital Mechanics Blog" # Logo subtitle
+  subtitle = "Digital Mechanixs Blog" # Logo subtitle
 
 [Params.thumbnail]
   visibility = ["list", "post"] # Control thumbnail visibility

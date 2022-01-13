@@ -6,7 +6,7 @@ paginate = "10" # Number of posts per page
 
 [Author] # Used in authorbox
   name = "Bitrat.Tech - Digital Mechanics Blog"
-  bio = "Data - Networks - Building - Fixing"
+  bio = "Data - Databases - Networks - Automation"
   avatar = "img/BitratTechIllustration.png"
 
 [params]
@@ -19,15 +19,13 @@ paginate = "10" # Number of posts per page
   authorbox = true # Show authorbox at bottom of pages if true
   toc = true # Enable Table of Contents
   pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
-  post_meta = ["author", "date", "categories"] # Order of post meta information
-  mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
+  post_meta = ["date", "categories"] # Order of post meta information
+  #mainSections = ["blog", "post", "news"] # Specify section pages to show on home page and the "Recent articles" widget
+  mainSections = ["blog", "post"] 
   dateformat = "2006-01-02" # Change the format of dates
-  mathjax = true # Enable MathJax
-  mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
-  mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
   googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
-  customCSS = ["css/custom.css"] # Include custom CSS files
-  customJS = ["js/custom.js"] # Include custom JS files
+  #customCSS = ["css/custom.css"] # Include custom CSS files
+  #customJS = ["js/custom.js"] # Include custom JS files
 
 [Params.style.vars]
   #highlightColor = "#e22d30" # Override highlight color

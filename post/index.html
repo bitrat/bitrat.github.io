@@ -179,7 +179,6 @@ Migrate to Hugo from Jekyll
 </h2>
 </header>
 <div class="content list__excerpt post__content clearfix">
-{{ partial &ldquo;tags.html&rdquo; .}}
 Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &lt;root>/ ▾ images/ logo.png should become
 ▾ &lt;root>/ ▾ static/ ▾ images/ logo.png Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.

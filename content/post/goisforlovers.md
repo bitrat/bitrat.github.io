@@ -10,7 +10,7 @@ tags:
   - "development"
 categories:
   - "Development"
-  - "golang"
+  - "go"
 menu: main
 ---
 

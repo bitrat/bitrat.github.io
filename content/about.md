@@ -5,7 +5,7 @@ authorbox: false
 sidebar: false
 menu: main
 ---
-
+{{ partial "tags.html" .}}
 Hugo is a static site engine written in Go.
 
 

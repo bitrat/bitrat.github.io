@@ -49,7 +49,7 @@ Elements can have attributes, which control how the elements work. For example, 
 ### Nested list
 
 <ul>
-  <li>First item</li>
+  <li>First item - alright!</li>
   <li>Second item
     <ul>
       <li>Second item First subitem</li>

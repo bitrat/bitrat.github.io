@@ -11,7 +11,6 @@ categories:
   - "golang"
 menu: main
 ---
-{{ partial "tags.html" .}}
 
 ## Step 1. Install Hugo
 

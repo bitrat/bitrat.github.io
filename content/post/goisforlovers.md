@@ -13,7 +13,6 @@ categories:
   - "golang"
 menu: main
 ---
-{{ partial "tags.html" .}}
 
 Hugo uses the excellent [Go][] [html/template][gohtmltemplate] library for
 its template engine. It is an extremely lightweight engine that provides a very

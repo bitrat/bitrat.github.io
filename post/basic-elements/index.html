@@ -148,6 +148,12 @@
 </ul>
 <h3 id=definition-list>Definition List</h3>
 <p>HTML also supports definition lists.</p>
+<dl>
+<dt>Blanco tequila</dt>
+<dd>The purest form of the blue agave spirit&mldr;
+Reposado tequila</dd>
+<dd>Typically aged in wooden barrels for between two and eleven months&mldr;</dd>
+</dl>
 <h2 id=blockquotes>Blockquotes</h2>
 <p>The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a <code>footer</code> or <code>cite</code> element, and optionally with in-line changes such as annotations and abbreviations.</p>
 <blockquote>
@@ -156,7 +162,15 @@ This line is part of the same quote.
 Also you can <em>put</em> <strong>Markdown</strong> into a blockquote.</p>
 </blockquote>
 <p>Blockquote with a citation.</p>
-<p>According to Mozilla&rsquo;s website, Firefox 1.0 was released in 2004 and became a big success.</p>
+<blockquote>
+<p>My goal wasn&rsquo;t to make a ton of money. It was to build good computers. I only started the company when I realized I could be an engineer forever.
+&ndash; Steve Wozniak[1]
+[1]: <a href=https://www.brainyquote.com/quotes/steve_wozniak_589494>https://www.brainyquote.com/quotes/steve_wozniak_589494</a></p>
+</blockquote>
+<blockquote>
+<p>According to Mozilla&rsquo;s website, &ldquo;Firefox 1.0 was released in 2004 and became a big success&rdquo;.[2]
+[2]: <a href=https://www.mozilla.org/en-US/about/history/details/>https://www.mozilla.org/en-US/about/history/details/</a></p>
+</blockquote>
 <h2 id=tables>Tables</h2>
 <p>Tables aren&rsquo;t part of the core Markdown spec, but Hugo supports them.</p>
 <table>
@@ -236,17 +250,17 @@ Also you can <em>put</em> <strong>Markdown</strong> into a blockquote.</p>
 </tbody>
 </table>
 <h2 id=code>Code</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#75715e>&lt;!DOCTYPE html&gt;</span>
-&lt;<span style=color:#f92672>html</span> <span style=color:#a6e22e>lang</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;en&#34;</span>&gt;
-&lt;<span style=color:#f92672>head</span>&gt;
-  &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;UTF-8&#34;</span>&gt;
-  &lt;<span style=color:#f92672>title</span>&gt;Example HTML5 Document&lt;/<span style=color:#f92672>title</span>&gt;
-&lt;/<span style=color:#f92672>head</span>&gt;
-&lt;<span style=color:#f92672>body</span>&gt;
-  &lt;<span style=color:#f92672>p</span>&gt;Test&lt;/<span style=color:#f92672>p</span>&gt;
-&lt;/<span style=color:#f92672>body</span>&gt;
-&lt;/<span style=color:#f92672>html</span>&gt;
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#75715e>&lt;!DOCTYPE html&gt;</span>
+<pre tabindex=0><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Example HTML5 Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Test&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#75715e>&lt;!DOCTYPE html&gt;</span>
 &lt;<span style=color:#f92672>html</span> <span style=color:#a6e22e>lang</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;en&#34;</span>&gt;
 &lt;<span style=color:#f92672>head</span>&gt;
   &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;UTF-8&#34;</span>&gt;
@@ -257,10 +271,12 @@ Also you can <em>put</em> <strong>Markdown</strong> into a blockquote.</p>
 &lt;/<span style=color:#f92672>body</span>&gt;
 &lt;/<span style=color:#f92672>html</span>&gt;</code></pre></div>
 <h2 id=other-stuff--abbr-sub-sup-kbd-etc>Other stuff — abbr, sub, sup, kbd, etc.</h2>
-<p>GIF is a bitmap image format.</p>
-<p>H2O</p>
-<p>C6H12O6</p>
-<p>Xn + Yn = Zn</p>
+<p>GIF is a bitmap image format.
+Subscripts
+H~2~O</p>
+<p>C~6~H~12~O~6</p>
+<p>Superscript
+X^n + Y^n = Z^n</p>
 <p>Press X to win. Or press CTRL+ALT+F to show FPS counter.</p>
 <p>As a unit of information in information theory, the bit has alternatively been called a shannon, named after Claude Shannon, the founder of field of information theory.</p>
 </div>

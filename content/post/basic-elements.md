@@ -63,12 +63,10 @@ Elements can have attributes, which control how the elements work. For example, 
 
 HTML also supports definition lists.
 
-<dl>
-  <dt>Blanco tequila</dt>
-  <dd>The purest form of the blue agave spirit...</dd>
-  <dt>Reposado tequila</dt>
-  <dd>Typically aged in wooden barrels for between two and eleven months...</dd>
-</dl>
+Blanco tequila
+: The purest form of the blue agave spirit...
+Reposado tequila
+: Typically aged in wooden barrels for between two and eleven months...
 
 ## Blockquotes
 
@@ -80,12 +78,12 @@ The blockquote element represents content that is quoted from another source, op
 
 Blockquote with a citation.
 
-<blockquote>
-  <p>My goal wasn't to make a ton of money. It was to build good computers. I only started the company when I realized I could be an engineer forever.</p>
-  <footer>— <cite>Steve Wozniak</cite></footer>
-</blockquote>
+> My goal wasn't to make a ton of money. It was to build good computers. I only started the company when I realized I could be an engineer forever.
+> -- <cite>Steve Wozniak[1]</cite>
+[1]: https://www.brainyquote.com/quotes/steve_wozniak_589494
 
-According to Mozilla's website, <q cite="https://www.mozilla.org/en-US/about/history/details/">Firefox 1.0 was released in 2004 and became a big success.</q>
+> According to Mozilla's website, <cite>"Firefox 1.0 was released in 2004 and became a big success".[2]</cite>
+[2]: https://www.mozilla.org/en-US/about/history/details/
 
 ## Tables
 
@@ -113,7 +111,7 @@ You can also use inline Markdown.
 
 ## Code
 
-```html
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,12 +140,13 @@ You can also use inline Markdown.
 ## Other stuff — abbr, sub, sup, kbd, etc.
 
 <abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
+Subscripts
+H~2~O
 
-H<sub>2</sub>O
+C~6~H~12~O~6
 
-C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>
-
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
+Superscript
+X^n + Y^n = Z^n
 
 Press <kbd>X</kbd> to win. Or press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>F</kbd></kbd> to show FPS counter.
 

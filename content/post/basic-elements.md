@@ -137,14 +137,14 @@ You can also use inline Markdown.
 </html>
 {{< /highlight >}}
 
-## Other stuff — abbr, sub, sup, kbd, etc.
+## Other stuff doesn't work as expected — abbr, sub, sup, kbd, etc.
 
 <abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
 
 Subscripts  
 H<sub>2</sub>O
 
-C~6~H~12~O~6
+C~6~H~12~O~6~
 
 Superscript  
 X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>

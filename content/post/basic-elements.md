@@ -140,13 +140,14 @@ You can also use inline Markdown.
 ## Other stuff — abbr, sub, sup, kbd, etc.
 
 <abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
-Subscripts
-H~2~O
+
+Subscripts  
+H<sub>2</sub>O
 
 C~6~H~12~O~6
 
-Superscript
-X^n + Y^n = Z^n
+Superscript  
+X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 
 Press <kbd>X</kbd> to win. Or press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>F</kbd></kbd> to show FPS counter.
 

@@ -47,29 +47,17 @@ Elements can have attributes, which control how the elements work. For example, 
 * And another item
 
 ### Nested list
-
-<ul>
-  <li>First item - alright!</li>
-  <li>Second item
-    <ul>
-      <li>Second item First subitem</li>
-      <li>Second item second subitem
-        <ul>
-          <li>Second item Second subitem First sub-subitem</li>
-          <li>Second item Second subitem Second sub-subitem</li>
-          <li>Second item Second subitem Third sub-subitem</li>
-        </ul>
-      </li>
-      <li>Second item Third subitem
-        <ol>
-          <li>Second item Third subitem First sub-subitem</li>
-          <li>Second item Third subitem Second sub-subitem</li>
-          <li>Second item Third subitem Third sub-subitem</li>
-        </ol>
-    </ul>
-  </li>
-  <li>Third item</li>
-</ul>
+* First item - alright!
+* Second item
+    * Second item First subitem
+    * Second item second subitem
+        * Second item Second subitem First sub-subitem
+        * Second item Second subitem Second sub-subitem
+        * Second item Second subitem Third sub-subitem
+    * Second item Third subitem
+        * Second item Third subitem First sub-subitem
+        * Second item Third subitem Second sub-subitem
+* Third item
 
 ### Definition List
 

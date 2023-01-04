@@ -1,27 +1,26 @@
 baseURL = 'https://bitrat.github.io/'
 languageCode = 'en-us'
-title = 'Bitrat.Tech - Digital Mechanixs Blog'
+title = 'Bitrat.Tech - Consulting as a Digital Mechanic'
 theme = "mainroad"
 paginate = "10" # Number of posts per page
 
 [Author] # Used in authorbox
-  name = "Bitrat.Tech - Digital Mechanixs Blog"
-  bio = "Data - Databases - Networks - Automation"
+  name = "Bitrat.Tech"
+  bio = "Cloud - Databases - Networks - Automation - Tips"
   avatar = "img/BitratTechIllustration.png"
 
 [params]
-  description = "Bitrat.Tech - Digital Mechanixs Blog" # Site description. Used in meta description
+  description = "Bitrat.Tech - Consulting as a Digital Mechanic - Blog" # Site description. Used in meta description
   copyright = "bitrat.tech" # Footer copyright holder, otherwise will use site title
   opengraph = true # Enable OpenGraph if true
   schema = true # Enable Schema
-  twitter_cards = true # Enable Twitter Cards if true
   readmore = true # Show "Read more" button in list if true
   authorbox = true # Show authorbox at bottom of pages if true
   toc = true # Enable Table of Contents
   pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
   post_meta = ["date", "categories"] # Order of post meta information
   #mainSections = ["blog", "post", "news"] # Specify section pages to show on home page and the "Recent articles" widget
-  mainSections = ["blog", "post"] 
+  mainSections = ["post"] 
   dateformat = "2006-01-02" # Change the format of dates
   googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
   #customCSS = ["css/custom.css"] # Include custom CSS files
@@ -39,7 +38,7 @@ paginate = "10" # Number of posts per page
 [Params.logo]
   image = "img/BitratTechIllustration.png" # Logo image. Path relative to "static"
   title = "Bitrat.Tech" # Logo title, otherwise will use site title
-  subtitle = "Digital Mechanixs Blog" # Logo subtitle
+  subtitle = "Consulting as a Digital Mechanic" # Logo subtitle
 
 [Params.thumbnail]
   visibility = ["list", "post"] # Control thumbnail visibility
@@ -51,7 +50,7 @@ paginate = "10" # Number of posts per page
   # Enable widgets in given order
   #widgets = ["search", "recent", "categories", "taglist", "social"]
   # alternatively "ddg-search" can be used, to search via DuckDuckGo
-  widgets = ["ddg-search", "recent", "categories", "taglist", "social"]
+  widgets = ["recent", "categories", "taglist", "social"]
 
 [Params.widgets]
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
@@ -64,7 +63,7 @@ paginate = "10" # Number of posts per page
   #twitter = "username"
   #linkedin = "username"
   github = "bitrat"
-  #email = "info@bitrat.tech"
+  #email = "username@example.com"
 
 [menu]
   [[menu.main]]
@@ -73,47 +72,75 @@ paginate = "10" # Number of posts per page
     url = "/"
     weight = 1
   [[menu.main]]
-    identifier = "category"
-    name = "Category"
-    url = "/category"
+    identifier = "Consulting"
+    name = "Consulting"
+    url = "/post/consulting"
     weight = 2
+#  [[menu.main]]
+#    identifier = "Access Support"
+#    name = "Access Support"
+#    url = "/post/consulting/access-support"
+#    parent = "Consulting"
+#    weight = 1
   [[menu.main]]
-    identifier = "category1"
-    name = "Category1"
-    url = "/tags/category1"
-    parent = "category"
+    identifier = "Small Business - NZ"
+    name = "Small Business - NZ"
+    url = "/post/consulting/small-business-nz"
+    parent = "Consulting"
     weight = 1
   [[menu.main]]
-    identifier = "category2"
-    name = "Category2"
-    url = "/tags/category2"
-    parent = "category"
-    weight = 2
+    identifier = "Technical"
+    name = "Technical"
+    url = "/post/technical"
+    weight = 3  # Third on Main Menu
   [[menu.main]]
-    identifier = "category3"
-    name = "Category3"
-    url = "/tags/category3"
-    parent = "category"
-    weight = 3
+    identifier = "Cloud - AWS"
+    name = "Cloud - AWS"
+    url = "/post/technical/cloud-aws"
+    parent = "Technical"
+    weight = 1  # first on sub-menu
+#  [[menu.main]]
+#    identifier = "Databases"
+#    name = "Databases"
+#    url = "/post/technical/databases"
+#    parent = "Technical"
+#    weight = 2
+#  [[menu.main]]
+#    identifier = "Software Development"
+#    name = "Software Development"
+#    url = "/post/technical/software-development"
+#    parent = "Technical"
+#    weight = 3
+#  [[menu.main]]
+#    identifier = "Networking"
+#    name = "Networking"
+#    url = "/post/technical/networking"
+#    parent = "Technical"
+#    weight = 4
   [[menu.main]]
-    identifier = "another-category"
-    name = "Another Category"
-    url = "/another-category"
-    weight = 3
-  [[menu.main]]
-    identifier = "another-category1"
-    name = "Another Category1"
-    url = "/tags/another-category1"
-    parent = "another-category"
-    weight = 1
-  [[menu.main]]
-    identifier = "another-category2"
-    name = "Another Category2"
-    url = "/tags/another-category2"
-    parent = "another-category"
-    weight = 2
+    identifier = "Documentation"
+    name = "Documentation"
+    url = "/docs"
+    weight = 4
+ # [[menu.main]]
+ #   identifier = "another-category"
+ #   name = "Another Category"
+ #   url = "/another-category"
+ #   weight = 5
+ # [[menu.main]]
+ #   identifier = "another-category1"
+ #   name = "Another Category1"
+ #   url = "/tags/another-category1"
+ #   parent = "another-category"
+ #   weight = 1
+ # [[menu.main]]
+ #   identifier = "another-category2"
+ #   name = "Another Category2"
+ #   url = "/tags/another-category2"
+ #   parent = "another-category"
+ #   weight = 2
  # [[menu.main]]
  #   identifier = "about"
  #   name = "About Us"
  #   url = "/about/"
- #   weight = 4
+ #   weight = 6

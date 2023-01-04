@@ -1,17 +1,32 @@
 ---
-title: "(Hu)go Template Primer"
-date: 2014-04-02
-thumbnail: "img/placeholder.png"
+title: "Template"
+date: 2023-01-04
+#thumbnail: "img/placeholder.png"
 tags:
-  - "go"
-  - "golang"
-  - "templates"
-  - "themes"
-  - "development"
+  - "Access Support"
+  - "Android Tips"
+  - "Apple Tips"
+  - "Automation"
+  - "Cloud"
+  - "AWS"
+  - "Azure"
+  - "Databases"
+  - "Amazon Aurora"
+  - "Amazon RDS"
+  - "MSSQL Server"
+  - "PostGreSQL"
+  - "Dynamo DB"
+  - "Networking"
+  - "Small Business - NZ"
+  - "Software Development"
+  - "Git"
+  - "C#"
+  - "Python"
 categories:
-  - "Development"
-  - "go"
-menu: main
+  - "Consulting"
+  - "Technical"
+menu: main # Optional, add page to a menu. Options: main, side, footer
+draft: true
 ---
 
 Hugo uses the excellent [Go][] [html/template][gohtmltemplate] library for

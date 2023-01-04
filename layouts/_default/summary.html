@@ -12,6 +12,11 @@
 		{{ with partial "post_meta.html" . -}}
 		<div class="list__meta meta">{{ . }}</div>
 		{{- end }}
+		<div>
+			<section>
+				<h6 id="date"> {{ .Date.Format "January 2, 2006" }} </h6>
+			</section>
+		</div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		{{ .Summary }}

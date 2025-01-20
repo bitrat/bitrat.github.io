@@ -6,4 +6,5 @@ sidebar: false
 menu: main
 ---
 
-Tnis website is run by Bitrat Tech
+The internet is not as user friendly as it should be.  
+This site contains ways of automating time-consuming things.

@@ -2,8 +2,6 @@ baseURL = 'https://bitrat.github.io/'
 languageCode = 'en-us'
 title = 'Bitrat.Tech - Consulting as a Digital Mechanic'
 theme = "mainroad"
-paginate = "10" # Number of posts per page
-# Define the number of posts per page
 
 [Author] # Used in authorbox
   name = "Bitrat.Tech"

@@ -1,11 +1,12 @@
 ---
-title: Small Business - NZ
+title: TEMPLATE
 description: Example test article that contains basic HTML elements for text formatting on the Web.
 date: 2025-01-20
 categories:
-  - "Consulting"
+  - "Technical"
 tags:
-  - "Small Business - NZ"
+  - "Cloud"
+  - "AWS"
 #menu: main # Optional, add page to a menu. Options: main, side, footer
 draft: true
 ---

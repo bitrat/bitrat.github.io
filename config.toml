@@ -7,7 +7,7 @@ paginate = "10" # Number of posts per page
 
 [Author] # Used in authorbox
   name = "Bitrat.Tech"
-  bio = "Cloud - Databases - Networks - Automation - Tips"
+  bio = "Technology Tips"
   avatar = "img/BitratTechIllustration.png"
 
 [params]
@@ -22,7 +22,7 @@ paginate = "10" # Number of posts per page
   post_meta = ["date", "categories"] # Order of post meta information
   #mainSections = ["blog", "post", "news"] # Specify section pages to show on home page and the "Recent articles" widget
   mainSections = ["post"] 
-  dateformat = "2006-01-02" # Change the format of dates
+  dateformat = "2025-01-02" # Change the format of dates
   googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
   #customCSS = ["css/custom.css"] # Include custom CSS files
   #customJS = ["js/custom.js"] # Include custom JS files
@@ -72,34 +72,40 @@ paginate = "10" # Number of posts per page
     name = "Home"
     url = "/"
     weight = 1
-  [[menu.main]]
-    identifier = "Consulting"
-    name = "Consulting"
-    url = "/post/consulting"
-    weight = 2
+#  [[menu.main]]
+#    identifier = "Consulting"
+#    name = "Consulting"
+#    url = "/post/consulting"
+#    weight = 3  #Third on main Menu
 #  [[menu.main]]
 #    identifier = "Access Support"
 #    name = "Access Support"
 #    url = "/post/consulting/access-support"
 #    parent = "Consulting"
 #    weight = 1
-  [[menu.main]]
-    identifier = "Small Business - NZ"
-    name = "Small Business - NZ"
-    url = "/post/consulting/small-business-nz"
-    parent = "Consulting"
-    weight = 1
+#  [[menu.main]]
+#    identifier = "Small Business - NZ"
+#    name = "Small Business - NZ"
+#    url = "/post/consulting/small-business-nz"
+#    parent = "Consulting"
+#    weight = 1
   [[menu.main]]
     identifier = "Technical"
     name = "Technical"
     url = "/post/technical"
-    weight = 3  # Third on Main Menu
+    weight = 2  # Second on Main Menu
   [[menu.main]]
-    identifier = "Cloud - AWS"
-    name = "Cloud - AWS"
-    url = "/post/technical/cloud-aws"
+    identifier = "Podcast - Disability Disrupters"
+    name = "Podcast - Disability Disrupters"
+    url = "/post/technical/podcast-disability-disrupters-workflow"
     parent = "Technical"
     weight = 1  # first on sub-menu
+#  [[menu.main]]
+#    identifier = "Cloud - AWS"
+#    name = "Cloud - AWS"
+#    url = "/post/technical/cloud-aws"
+#    parent = "Technical"
+#    weight = 1  # first on sub-menu
 #  [[menu.main]]
 #    identifier = "Databases"
 #    name = "Databases"
@@ -118,11 +124,11 @@ paginate = "10" # Number of posts per page
 #    url = "/post/technical/networking"
 #    parent = "Technical"
 #    weight = 4
-  [[menu.main]]
-    identifier = "Documentation"
-    name = "Documentation"
-    url = "/docs"
-    weight = 4
+#   [[menu.main]]
+#    identifier = "Documentation"
+#    name = "Documentation"
+#    url = "/docs"
+#    weight = 4
  # [[menu.main]]
  #   identifier = "another-category"
  #   name = "Another Category"

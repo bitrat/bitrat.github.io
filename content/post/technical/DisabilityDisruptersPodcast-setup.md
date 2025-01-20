@@ -1,11 +1,12 @@
 ---
-title: Small Business - NZ
-description: Example test article that contains basic HTML elements for text formatting on the Web.
+title: Disability Disrupters podcast workflow
+description: How the Disability Disrupters Podcast was setup across multiple platforms.
 date: 2025-01-20
 categories:
-  - "Consulting"
+  - "Technical"
 tags:
-  - "Small Business - NZ"
+  - "Podcast"
+  - "Disbility Disrupters"
 #menu: main # Optional, add page to a menu. Options: main, side, footer
 draft: true
 ---

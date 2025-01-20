@@ -1,13 +1,14 @@
 ---
-title: Small Business - NZ
-description: Example test article that contains basic HTML elements for text formatting on the Web.
+title: Disability Disrupters podcast workflow
+description: How the Disability Disrupters Podcast is produced day to day.
 date: 2025-01-20
 categories:
-  - "Consulting"
+  - "Technical"
 tags:
-  - "Small Business - NZ"
+  - "Podcast"
+  - "Disbility Disrupters"
 #menu: main # Optional, add page to a menu. Options: main, side, footer
-draft: true
+draft: false
 ---
 
 The main purpose of this article is to make sure that all basic HTML Elements are decorated with CSS so as to not miss any possible elements when creating new themes for Hugo.

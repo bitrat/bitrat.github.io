@@ -6,8 +6,6 @@ sidebar: false
 menu: main
 ---
 
-draft: false
-
 Tnis website is run by Hugo, which is a static site engine written in Go.
 
 

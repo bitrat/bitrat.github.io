@@ -232,82 +232,8 @@
 </div>
 
 </header>
-<p>Apps like Descript, when you export .vtt subtitle files, will not tag the speakers on every 42 character line.
-For a Disability podcast that must have captions and transcriptions avaiolable for each Episode, this missing feature for Descript is a major manual time waster per Episode (Feb 2025, here&rsquo;s where the bug request was lodged, upvote, so we don;t have to do these crazy hacks)</p>
-<p>
-This lack of true 42 character voice tagging, creates issues with podcast subtitle files, if you want to use it for transcripts in Pinecast (a podcast distributor).
-The python script I created solves my own problem, of spending 1 to 2 hours per Episode having to auto-tag the vtt file every time the speaker switches.
-This has made a 1-2 hour job in my current workflow into a 5 minute one, which is why I am sharing the process and the script.
-<p>
-NOTE: this python script is supplied, as is (it works for me, feel free to mod for your own use)
-<p>
-##Pre-requisites
-* The Descript speakers need to be labelled **&lt;v SPEAKERNAME&&gt;**  (the python script looks for **&lt;v** to change speaker tags where they are missing, this made the python script simpler for me to construct)
-	* Basically, when you import speaker audio into Descript and transcribe, name that speaker **&lt;v SPEAKERNAME&&gt;**
-* Install python on your PC
-* Create a folder to contain the vtt-auto.py script 
-* Add your .vtt file (exported from Descript - with 42 character setting) into the same folder as vtt-auto.py script
-	* rename your .vtt input file to **IN-Epx.vtt**
-* run the pythion script from the same folder that the IN-Epx.vtt in
-	* py .\vtt-AutoTag-Tool.py
-* The output .vtt file called OUT-Epx.vtt is what you can upload to Pinecast transcript 
-# vtt-AutoTag-Tool.py script
-[The python script and a test .vtt file](https://github.com/bitrat/bitrat-blog-starter/tree/main/vtt-Autotag) (an actual Descript .vtt exported file that shows the issue the script will solve) can be downloaded from my repository on github
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">title</span>&gt;vtt-Autotag-Tool.py&lt;/<span style="color:#f92672">title</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">p</span>&gt;import re
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>from shutil import move
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>x = &#34;&#34;
-</span></span><span style="display:flex;"><span>currentTag = &#34;&lt;<span style="color:#f92672">v</span> <span style="color:#a6e22e">TestPerson</span>&gt;&#34;
-</span></span><span style="display:flex;"><span>filename = &#39;./IN-Epx.vtt&#39;
-</span></span><span style="display:flex;"><span>filename2 = &#39;./OUT-Epx.vtt&#39;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>#with open(filename, &#34;r&#34;) as finput, open(filename2, &#34;w&#34;) as foutput:
-</span></span><span style="display:flex;"><span>fileIn = open(filename, &#34;r&#34;)
-</span></span><span style="display:flex;"><span>readLines = fileIn.readlines()
-</span></span><span style="display:flex;"><span>print(&#34;readlines :&#34;,readLines)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>fileOut = open(filename2, &#39;w&#39;)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>line_count = 0
-</span></span><span style="display:flex;"><span>digit_line = 0
-</span></span><span style="display:flex;"><span>for line in readLines:
-</span></span><span style="display:flex;"><span>    line_count += 1
-</span></span><span style="display:flex;"><span>    #print(line_count,line)
-</span></span><span style="display:flex;"><span>    print(line)
-</span></span><span style="display:flex;"><span>    if line[0:2].isdigit():
-</span></span><span style="display:flex;"><span>        digit_line=line_count
-</span></span><span style="display:flex;"><span>        #print(digit_line)
-</span></span><span style="display:flex;"><span>    if (line_count == digit_line+1):
-</span></span><span style="display:flex;"><span>        #print(line)
-</span></span><span style="display:flex;"><span>        #print(&#34;1 line after digits&#34;)
-</span></span><span style="display:flex;"><span>        try:
-</span></span><span style="display:flex;"><span>            #x = re.search(r&#34;^\&lt;<span style="color:#f92672">v</span><span style="color:#960050;background-color:#1e0010">[^\(]*[</span><span style="color:#a6e22e">:</span><span style="color:#960050;background-color:#1e0010">]&#34;,</span> <span style="color:#a6e22e">line</span><span style="color:#960050;background-color:#1e0010">)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">x </span><span style="color:#f92672">=</span> <span style="color:#e6db74">re.search(r&#34;^\&lt;v[^\(]*[</span>&gt;]&#34;, line)
-</span></span><span style="display:flex;"><span>            #print(&#39;x: &#39;,x.group(0))
-</span></span><span style="display:flex;"><span>            currentTag = x.group(0)
-</span></span><span style="display:flex;"><span>            fileOut.write(line)
-</span></span><span style="display:flex;"><span>        except AttributeError:
-</span></span><span style="display:flex;"><span>            out = currentTag+line  
-</span></span><span style="display:flex;"><span>            fileOut.write(out)
-</span></span><span style="display:flex;"><span>            #print(&#39;foutx: &#39;,out)
-</span></span><span style="display:flex;"><span>    else:
-</span></span><span style="display:flex;"><span>        fileOut.write(line)
-</span></span><span style="display:flex;"><span>fileIn.close()     
-</span></span><span style="display:flex;"><span>fileOut.close() 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># writing to file an array of values L = [&#34;Geeks\n&#34;, &#34;for\n&#34;, &#34;Geeks\n&#34;]
-</span></span><span style="display:flex;"><span>#fileOut.writelines(L)       
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;</span></span></code></pre></div>
+<p>Apps like Descript, when you export .vtt subtitle files, will not tag the speakers on every 42 character line, they only voice tag on speaker changes. This allows podcasting distributors like Pinecast to recognize the speakers and format the transcript accordingly. These platforms expect speaker tagging on ALL separate 42 character subtitle lines.
+For a Disability podcast (like <strong>Disability Disrupters</strong>) that must have captions and transcriptions available for each Episode, this missing feature for Descript is a major manual time waster per Episode.</p>
 </article>
 
 

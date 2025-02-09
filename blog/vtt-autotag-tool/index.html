@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width">
 <title>vtt-Autotag-Tool python script for Descript exported subtitle .vtt files – Bitrat Tech</title>
 
-<meta name="created" content="0001-01-01T00:00:00+0000">
-<meta name="modified" content="0001-01-01T00:00:00+0000">
+<meta name="created" content="2025-02-09T11:50:00+1300">
+<meta name="modified" content="2025-02-09T11:50:00+1300">
 <meta name="author" content="Britta Bitrat">
 
 <meta property="og:site_name" content="Bitrat Tech">
@@ -34,8 +34,8 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting","headline": "vtt-Autotag-Tool python script for Descript exported subtitle .vtt files",
-    "datePublished": "0001-01-01T00:00:00Z",
-    "dateModified": "0001-01-01T00:00:00Z",
+    "datePublished": "2025-02-09T11:50:00+13:00",
+    "dateModified": "2025-02-09T11:50:00+13:00",
     "url" : "https://bitrat.tech/blog/vtt-autotag-tool/",
     
     "image" : "https://bitrat.tech/logo.png",
@@ -113,32 +113,40 @@
 <header>
 <h1 class="title mb--xxs">vtt-Autotag-Tool python script for Descript exported subtitle .vtt files</h1>
 <div class="submitted meta">
-<span class="author" itemprop="author">Britta Bitrat</span>
+<span class="author" itemprop="author">Britta Bitrat</span> - <time class="created-date" datetime="2025-02-09T11:50:00&#43;13:00">9 February, 2025</time>
 
 </div>
 </header>
 
-<p>Apps like Descript, when you export .vtt subtitle files, will not tag the speakers on every 42 character line, they only voice tag on speaker changes. This allows podcasting distributors like Pinecast to recognize the speakers and format the transcript accordingly. These platforms expect speaker tagging on ALL separate 42 character subtitle lines.
-For a Disability podcast (like <strong>Disability Disrupters</strong>) that must have captions and transcriptions available for each Episode, this missing feature for Descript is a major manual time waster per Episode.</p>
-<p>[Feb 2025 - Here's where I lodged the bug report with Descript in August 2024, before solving it with my janky pythin script] (https://descript.canny.io/feature-requests/p/voice-tags-in-vtt), upvote if you agree that Descript should solve this, so we don't have to do these crazy script hacks.
-<p>
-The python script I created solves my own problem, of spending 1 to 2 hours per Episode having to manually tag the vtt file every 42 characters if the speaker does not switch.
-<p>This python script has made the 1-2 hour manual tag job in my current workflow into a 5 minute one, which is why I am sharing the process and the script.
+<p>Apps like Descript, when you export .vtt subtitle files, will not tag the speakers on every 42 character line, they only voice tag on speaker changes. This does not currently allow podcasting distributors like Pinecast to recognize the speakers and format the transcript accordingly. These platforms expect speaker tagging on ALL separate 42 character subtitle lines.
+For a Disability podcast (like <strong>Disability Disrupters</strong>) that must have captions and transcriptions available for each Episode, this missing feature for Descript is a major manual time waster per Episode.
+This is a demo site for the <a href="https://descript.canny.io/feature-requests/p/voice-tags-in-vtt">Feb 2025 - Here&rsquo;s where I lodged the bug report with Descript in August 2024, before solving it with my janky python script</a> - upvote if you agree that Descript should solve this, so we don&rsquo;t have to do these crazy script hacks.</p>
+<p>This python script has made my 1-2 hour manual voice tag process into a 5 minute one, which is why I am sharing my process and the script.
 <p>
 NOTE: this python script is supplied, as is (it works for me, feel free to modify it for your own use)
-<p>
-##Pre-requisites
-* The Descript speakers in the transcript before Export, need to already be labelled **&lt;v SPEAKERNAME&&gt;**  (the python script looks for **&lt;v** to change speaker tags where they are missing, this made the python script simpler for me to construct)
-	* Basically, when you import speaker audio into Descript and transcribe, name that speaker from the get-go **&lt;v SPEAKERNAME&&gt;**
-* Install python on your PC (one-time setup)
-* Create a folder to contain the vtt-Autotag-Tool.py script 
-* Add your .vtt file (exported from Descript - with 42 character setting) into the same folder as vtt-Autotag-Tool.py script
-	* rename your .vtt input file to **IN-Epx.vtt** (this is what th python script expects - modify your script to suit your workflow)
-* run the pythion script from the same folder that the IN-Epx.vtt is in
-	* py .\vtt-AutoTag-Tool.py
-* The output .vtt file will be called **OUT-Epx.vtt**. This is what you can upload as a Pinecast transcript 
-# vtt-AutoTag-Tool.py script
-[The python script and a test .vtt file](https://github.com/bitrat/bitrat-blog-starter/tree/main/vtt-Autotag) (an actual Descript .vtt exported file that shows the issue the script will solve) can be downloaded from my repository on github
+<p>##Pre-requisites</p>
+<ul>
+<li>The Descript speakers in the transcript before Export, need to already be labelled <strong>&lt;v SPEAKERNAME&amp;&gt;</strong>  (the python script looks for <strong>&lt;v</strong> to change speaker tags where they are missing, this made the python script simpler for me to construct)
+<ul>
+<li>Basically, when you import speaker audio into Descript and transcribe, name that speaker from the get-go <strong>&lt;v SPEAKERNAME&amp;&gt;</strong></li>
+</ul>
+</li>
+<li>Install python on your PC (one-time setup)</li>
+<li>Create a folder to contain the vtt-Autotag-Tool.py script</li>
+<li>Add your .vtt file (exported from Descript - with 42 character setting) into the same folder as vtt-Autotag-Tool.py script
+<ul>
+<li>rename your .vtt input file to <strong>IN-Epx.vtt</strong> (this is what th python script expects - modify your script to suit your workflow)</li>
+</ul>
+</li>
+<li>run the pythion script from the same folder that the IN-Epx.vtt is in
+<ul>
+<li>py .\vtt-AutoTag-Tool.py</li>
+</ul>
+</li>
+<li>The output .vtt file will be called <strong>OUT-Epx.vtt</strong>. This is what you can upload as a Pinecast transcript</li>
+</ul>
+<h1 id="vtt-autotag-toolpy-script">vtt-AutoTag-Tool.py script</h1>
+<p><a href="https://github.com/bitrat/bitrat-blog-starter/tree/main/vtt-Autotag">The python script and a test .vtt file</a> (an actual Descript .vtt exported file that shows the issue the script will solve) can be downloaded from my repository on github</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>import re
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>from shutil import move

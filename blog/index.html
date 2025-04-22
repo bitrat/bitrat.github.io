@@ -6,8 +6,8 @@
 <title>Blog section – Bitrat Tech</title>
 <link rel="alternate" type="application/rss+xml" title="rss" href="https://bitrat.tech/blog/index.xml">
 
-<meta name="created" content="2025-02-09T11:50:00+1300">
-<meta name="modified" content="2025-02-09T11:50:00+1300">
+<meta name="created" content="2025-04-22T18:10:00+1300">
+<meta name="modified" content="2025-04-22T18:10:00+1300">
 <meta name="author" content="Britta Bitrat">
 
 <meta property="og:site_name" content="Bitrat Tech">
@@ -120,7 +120,7 @@
 <header>
 <h2 class="title mt--s mb--xxs"><a href="/blog/vtt-autotag-tool/">vtt-Autotag-Tool python script for Descript exported subtitle .vtt files</a></h2>
 <div class="submitted meta">
-<span class="author" itemprop="author">Britta Bitrat</span> - <time class="created-date" datetime="2025-02-09T11:50:00&#43;13:00">9 February, 2025</time>
+<span class="author" itemprop="author">Britta Bitrat</span> - <time class="created-date" datetime="2025-04-22T18:10:00&#43;13:00">22 April, 2025</time>
 
 </div>
 
@@ -134,7 +134,7 @@ For a Disability podcast like <a href="https://pinecast.com/feed/disability-disr
 <header>
 <h2 class="title mt--s mb--xxs"><a href="/blog/disability-disrupters-workflow/">Workflow for Disability Disrupters Podcast using Descript</a></h2>
 <div class="submitted meta">
-<span class="author" itemprop="author">Britta Bitrat</span> - <time class="created-date" datetime="2025-02-08T17:30:00&#43;13:00">8 February, 2025</time>
+<span class="author" itemprop="author">Britta Bitrat</span> - <time class="created-date" datetime="2025-04-22T17:30:00&#43;13:00">22 April, 2025</time>
 
 </div>
 
@@ -152,58 +152,117 @@ For a Disability podcast like <a href="https://pinecast.com/feed/disability-disr
 <ul>
 <li>Zoom meet settings need to be: auto record, set to cloud, people can join anytime</li>
 <li>Once interview finished, wait for recording to process</li>
-<li>Download the RAW audio files from Zoom as a backup (&ldquo;RAW&rdquo; folder)</li>
+<li>Copy &ldquo;EpxTEMPLATE-Descript&rdquo; folder and rename to &ldquo;Episode x - Interview with &lt;Name&gt;&rdquo;</li>
+<li>Download the RAW audio files from Zoom into &ldquo;RAW&rdquo; folder</li>
 </ul>
 <h2 id="descript">Descript</h2>
+<h3 id="edit-interview">Edit Interview</h3>
 <ul>
 <li>Create new audio Project in &ldquo;Interviews&rdquo; folder &ldquo;Episode x - Interview with &lt;Name&gt;&rdquo;</li>
 <li>RAW interview file - Import audio from Zoom into Descript directly (or download and import each speaker audio separately)
 <ul>
 <li>Select &ldquo;Transcribe&rdquo;</li>
 <li>add speaker labels &lt;v Dr Pam&gt;<strong>nospace</strong></li>
-<li>Edit transcript</li>
+<li>Underlord - <strong>Remove filler words</strong></li>
+<li>Edit transcript
+<ul>
+<li>At start of audio get rid of &ldquo;tell us about yourself&rdquo; question (if this makes sense)</li>
 <li>At end of audio get rid of &ldquo;anything else&rdquo; question (if this makes sense)</li>
 </ul>
 </li>
 <li>Apply Studio Sound (if necessary, otherwise skip this step)</li>
+</ul>
+</li>
 <li>Move Interview from &ldquo;Interviews&rdquo; folder into &ldquo;Interviews\Edited interviews&rdquo; folder</li>
-<li>In &ldquo;Template-Projects&rdquo; folder - Duplicate appropriate project template then Move it to &ldquo;Episodes\In Progress&rdquo; folder - re-name to &ldquo;Episode x - Interview with &lt;Name&gt;&rdquo;</li>
-<li>From the &ldquo;Interviews\Edited interviews&rdquo; folder - Open edited interview then copy text &amp; paste edited interview audio (do not transcribe) below &ldquo;Interview&rdquo; marker</li>
-<li>Make sure background music in correct place (in Layer)</li>
+</ul>
+<h3 id="duplicate-template---edit-episode">Duplicate Template - edit Episode</h3>
+<ul>
+<li>In &ldquo;Template-Projects&rdquo; folder
+<ul>
+<li>Duplicate appropriate project template</li>
+<li>Move it to &ldquo;Episodes\In Progress&rdquo; folder
+<ul>
+<li>re-name project to &ldquo;Episode x - Interview with &lt;Name&gt;&rdquo;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>From the &ldquo;Interviews\Edited interviews&rdquo; folder
+<ul>
+<li>Open edited interview</li>
+<li>copy text &amp; paste edited interview audio (do not re-transcribe) below &ldquo;Interview&rdquo; marker in &ldquo;Episode x - Interview with &lt;Name&gt;&rdquo; project</li>
 <li>Double-check title of entire script is &ldquo;Episode x -Interview with &lt;Name&gt;&rdquo;</li>
 <li>Rename the &ldquo;Interview&rdquo; marker in the Transcript to &ldquo;Interview with &lt;Name&gt;&rdquo;</li>
+<li>add Dr Pam&rsquo;s intro, transcribe and edit</li>
+<li>add &ldquo;Ask Dr Pam&rdquo; segment, transcribe and edit</li>
+<li>add Dr Pam&rsquo;s outro, transcribe and edit</li>
+<li>Make sure background music in correct place (in Layer - Large - scroll audio layer)
+<ul>
+<li>adjust audio boundaries on timeline (insert gap, make sure audio in full for each section)</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Move Interview from &ldquo;Interviews\Edited Interviews&rdquo; to &ldquo;used-in-a-script&rdquo; folder</li>
-<li>add Dr Pam&rsquo;s intro, transcribe and edit
-<ul>
-<li>adjust audio boundaries on timeline (insert gap, make sure audio in full for each section)</li>
 </ul>
-</li>
-<li>add Dr Pam&rsquo;s outro, transcribe and edit
+<h3 id="export-draft-episode-audio">Export Draft Episode Audio</h3>
 <ul>
-<li>adjust audio boundaries on timeline (insert gap, make sure audio in full for each section)</li>
-</ul>
-</li>
-<li>Open interview from &ldquo;Interviews\Edited Interviews\Used-in-a-script&rdquo;
+<li>Open episode from &ldquo;Interviews\Episodes\In Progress&rdquo; folder
 <ul>
 <li>Check Markers are properly labelled</li>
+<li><strong>Export - Audio</strong>
+<ul>
+<li>Local Export</li>
+<li>Current Composition</li>
+<li>mp3</li>
+<li>Metadata – Show title - &ldquo;Episode x – Disability Disrupters&rdquo;</li>
+<li>Metadata – Episode title - &ldquo;Interview with <Name>&rdquo;</li>
+<li>SAVE AS-  &ldquo;DRAFT-EditedInterview-Episode x - Interview with <Name>&rdquo;</li>
+<li>Copy to Shared folder for podcast host to review</li>
 </ul>
 </li>
-<li>Publish - Export - subtitles - edit Episode in Librewriter (check &lt;v speaker&gt; tags)
-<ul>
-<li>Name vtt file &ldquo;Episode x - Interview with &lt;Name&gt;&rdquo;</li>
-<li>Run Auto-tag py script (to add the speaker labels that are missing in vtt file)</li>
-</ul>
-</li>
-<li>Publish - Export - audio mp3 - name it EditedInterview
-<ul>
-<li>include markers</li>
 <li>check size of audio is less than 135 MB (pinecast plan limit)</li>
+<li>Listen to the DRAFT audio (transition points)</li>
 </ul>
 </li>
 </ul>
-<h2 id="test-podcast-episodes-folder">test-Podcast-Episodes folder</h2>
+<h3 id="review-draft-episode-audio">Review Draft Episode Audio</h3>
 <ul>
-<li>Place edited audio and transcripts into that folder</li>
+<li>Podcast Host reviews &ldquo;DRAFT-EditedInterview-Episode x - Interview with <Name>&rdquo;
+<ul>
+<li>implement changes</li>
+<li>Save &ldquo;FINAL-EditedInterview-Episode x - Interview with <Name>&rdquo;</li>
+</ul>
+</li>
+</ul>
+<h3 id="export-and-process-transcript-vtt-file">Export and process transcript (vtt file)</h3>
+<ul>
+<li><strong>Export - Subtitles</strong>
+<ul>
+<li>Name file &ldquo;IN-Epx.vtt&rdquo; and place into <strong>vtt-Autotag</strong> folder
+<ul>
+<li>Open &ldquo;IN-Epx.vtt&rdquo; and remove &ldquo;Descript&rdquo; text</li>
+</ul>
+</li>
+<li>Run Auto-tag py script (to add the speaker labels that are missing in vtt file)
+<ul>
+<li>cmd.exe from vtt-Autotag folder</li>
+<li>py .\vtt-AutoTag-Tool.py</li>
+</ul>
+</li>
+<li>Rename the resultant &ldquo;Out-Expx.vtt&rdquo; file &ldquo;FINAL-Episode x - Interview with &lt;Name&gt;&rdquo;
+<ul>
+<li>Open &ldquo;Out-Expx.vtt&rdquo; and remove <v TestPerson> text</li>
+<li>Put macrons back in (if you had to remove them for script not to fail)</li>
+</ul>
+</li>
+<li>Move file to FINAL folder</li>
+</ul>
+</li>
+</ul>
+<h2 id="shared-podcast-episodes-folder">Shared Podcast Episodes folder</h2>
+<ul>
+<li>Place FINAL audio and transcripts into that folder</li>
 </ul>
 <h2 id="produce-timetext-markers-for-pinecast-show-notes-section">Produce time/text markers for Pinecast show notes section</h2>
 <ul>

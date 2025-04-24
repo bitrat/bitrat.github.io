@@ -171,14 +171,16 @@ NOTE: this python script is supplied, as is (it works for me, feel free to modif
 </span></span><span style="display:flex;"><span>digit_line = 0
 </span></span><span style="display:flex;"><span>for line in readLines:
 </span></span><span style="display:flex;"><span>    line_count += 1
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    print(line)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>	if line[0:2].isdigit():
+</span></span><span style="display:flex;"><span>    if line[0:2].isdigit():
 </span></span><span style="display:flex;"><span>        digit_line=line_count
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    if (line_count == digit_line+1):
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        try:
-</span></span><span style="display:flex;"><span>            x = re.search(r&#34;^\&lt;<span style="color:#f92672">v</span><span style="color:#960050;background-color:#1e0010">[^\(]*[</span>&gt;]&#34;, line)
+</span></span><span style="display:flex;"><span>            #x = re.search(r&#34;^\&lt;<span style="color:#f92672">v</span><span style="color:#960050;background-color:#1e0010">[^\(]*[</span><span style="color:#a6e22e">:</span><span style="color:#960050;background-color:#1e0010">]&#34;,</span> <span style="color:#a6e22e">line</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">x </span><span style="color:#f92672">=</span> <span style="color:#e6db74">re.search(r&#34;^\&lt;v[^\(]*[</span>&gt;]&#34;, line)
 </span></span><span style="display:flex;"><span>            currentTag = x.group(0)
 </span></span><span style="display:flex;"><span>            fileOut.write(line)
 </span></span><span style="display:flex;"><span>        except AttributeError:
@@ -186,9 +188,8 @@ NOTE: this python script is supplied, as is (it works for me, feel free to modif
 </span></span><span style="display:flex;"><span>            fileOut.write(out)
 </span></span><span style="display:flex;"><span>    else:
 </span></span><span style="display:flex;"><span>        fileOut.write(line)
-</span></span><span style="display:flex;"><span>		
 </span></span><span style="display:flex;"><span>fileIn.close()     
-</span></span><span style="display:flex;"><span>fileOut.close() 
+</span></span><span style="display:flex;"><span>fileOut.close()      
 </span></span><span style="display:flex;"><span>     </span></span></code></pre></div>
 
 

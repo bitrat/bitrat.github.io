@@ -195,8 +195,8 @@
 <li>Current Composition</li>
 <li>mp3</li>
 <li>Metadata – Show title - &ldquo;Episode x – Disability Disrupters&rdquo;</li>
-<li>Metadata – Episode title - &ldquo;Interview with <Name>&rdquo;</li>
-<li>SAVE AS-  &ldquo;DRAFT-EditedInterview-Episode x - Interview with <Name>&rdquo;</li>
+<li>Metadata – Episode title - &ldquo;Interview with &lt;Name&gt;&rdquo;</li>
+<li>SAVE AS-  &ldquo;DRAFT-EditedInterview-Episode x - Interview with &lt;Name&gt;&rdquo;</li>
 <li>Copy to Shared folder for podcast host to review</li>
 </ul>
 </li>
@@ -207,10 +207,10 @@
 </ul>
 <h3 id="review-draft-episode-audio">Review Draft Episode Audio</h3>
 <ul>
-<li>Podcast Host reviews &ldquo;DRAFT-EditedInterview-Episode x - Interview with <Name>&rdquo;
+<li>Podcast Host reviews &ldquo;DRAFT-EditedInterview-Episode x - Interview with &lt;Name&gt;&rdquo;
 <ul>
 <li>implement changes</li>
-<li>Save &ldquo;FINAL-EditedInterview-Episode x - Interview with <Name>&rdquo;</li>
+<li>Save &ldquo;FINAL-EditedInterview-Episode x - Interview with &lt;Name&gt;&rdquo;</li>
 </ul>
 </li>
 </ul>
@@ -221,6 +221,7 @@
 <li>Name file &ldquo;IN-Epx.vtt&rdquo; and place into <strong>vtt-Autotag</strong> folder
 <ul>
 <li>Open &ldquo;IN-Epx.vtt&rdquo; and remove &ldquo;Descript&rdquo; text</li>
+<li>Replace all instances of &gt;: with &gt;</li>
 </ul>
 </li>
 <li>Run Auto-tag py script (to add the speaker labels that are missing in vtt file)
@@ -231,7 +232,7 @@
 </li>
 <li>Rename the resultant &ldquo;Out-Expx.vtt&rdquo; file &ldquo;FINAL-Episode x - Interview with &lt;Name&gt;&rdquo;
 <ul>
-<li>Open &ldquo;Out-Expx.vtt&rdquo; and remove <v TestPerson> text</li>
+<li>Open &ldquo;Out-Expx.vtt&rdquo; and remove &lt;v TestPerson&gt; text</li>
 <li>Put macrons back in (if you had to remove them for script not to fail)</li>
 </ul>
 </li>

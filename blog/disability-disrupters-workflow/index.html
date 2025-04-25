@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width">
 <title>Workflow for Disability Disrupters Podcast using Descript – Bitrat Tech</title>
 
-<meta name="created" content="2025-04-25T11:30:00+1300">
-<meta name="modified" content="2025-04-25T11:30:00+1300">
+<meta name="created" content="2025-04-25T14:30:00+1300">
+<meta name="modified" content="2025-04-25T14:30:00+1300">
 <meta name="author" content="Britta Bitrat">
 
 <meta property="og:site_name" content="Bitrat Tech">
@@ -34,8 +34,8 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting","headline": "Workflow for Disability Disrupters Podcast using Descript",
-    "datePublished": "2025-04-25T11:30:00+13:00",
-    "dateModified": "2025-04-25T11:30:00+13:00",
+    "datePublished": "2025-04-25T14:30:00+13:00",
+    "dateModified": "2025-04-25T14:30:00+13:00",
     "url" : "https://bitrat.tech/blog/disability-disrupters-workflow/",
     
     "image" : "https://bitrat.tech/logo.png",
@@ -113,19 +113,21 @@
 <header>
 <h1 class="title mb--xxs">Workflow for Disability Disrupters Podcast using Descript</h1>
 <div class="submitted meta">
-<span class="author" itemprop="author">Britta Bitrat</span> - <time class="created-date" datetime="2025-04-25T11:30:00&#43;13:00">25 April, 2025</time>
+<span class="author" itemprop="author">Britta Bitrat</span> - <time class="created-date" datetime="2025-04-25T14:30:00&#43;13:00">25 April, 2025</time>
 
 </div>
 </header>
 
 <h1 id="workflow-steps">Workflow steps</h1>
+<h2 id="high-level-overview">High level overview</h2>
 <p>Pre-requisites for getting the episode completed:</p>
 <ul>
+<li>Dr Pam&rsquo;s intro and outro</li>
+<li>&ldquo;Ask Dr Pam&rdquo; segment</li>
 <li>Interviewee bio</li>
+<li>Runsheet for what Adverts to include</li>
 <li>Edited Episode audio</li>
 <li>Edited Episode transcript (for deaf and deafblind)</li>
-<li>Dr Pam&rsquo;s intro and outro</li>
-<li>Runsheet for what Adverts to include</li>
 </ul>
 <h2 id="setup-zoom-meeting">Setup Zoom meeting</h2>
 <ul>
@@ -137,7 +139,7 @@
 <h2 id="descript">Descript</h2>
 <h3 id="edit-interview">Edit Interview</h3>
 <ul>
-<li>Create new audio Project in &ldquo;Interviews&rdquo; folder &ldquo;Episode x - Interview with &lt;Name&gt;&rdquo;</li>
+<li>Create new audio Project in &ldquo;Interviews&rdquo; folder &ldquo;Interview with &lt;Name&gt;&rdquo;</li>
 <li>RAW interview file - Import audio from Zoom into Descript directly (or download and import each speaker audio separately)
 <ul>
 <li>Select &ldquo;Transcribe&rdquo;</li>
@@ -152,21 +154,21 @@
 <li>Apply Studio Sound (if necessary, otherwise skip this step)</li>
 </ul>
 </li>
-<li>Move Interview from &ldquo;Interviews&rdquo; folder into &ldquo;Interviews\Edited interviews&rdquo; folder</li>
+<li>Move Interview from &ldquo;Interviews&rdquo; folder into &ldquo;Interviews\Edited-Interviews&rdquo; folder</li>
 </ul>
 <h3 id="duplicate-template---edit-episode">Duplicate Template - edit Episode</h3>
 <ul>
 <li>In &ldquo;Template-Projects&rdquo; folder
 <ul>
 <li>Duplicate appropriate project template</li>
-<li>Move it to &ldquo;Episodes\In Progress&rdquo; folder
+<li>Move it to &ldquo;Episodes\In-Progress&rdquo; folder
 <ul>
 <li>re-name project to &ldquo;Episode x - Interview with &lt;Name&gt;&rdquo;</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>From the &ldquo;Interviews\Edited interviews&rdquo; folder
+<li>From the &ldquo;Interviews\Edited-Interviews&rdquo; folder
 <ul>
 <li>Open edited interview</li>
 <li>copy text &amp; paste edited interview audio (do not re-transcribe) below &ldquo;Interview&rdquo; marker in &ldquo;Episode x - Interview with &lt;Name&gt;&rdquo; project</li>
@@ -177,16 +179,16 @@
 <li>add Dr Pam&rsquo;s outro, transcribe and edit</li>
 <li>Make sure background music in correct place (in Layer - Large - scroll audio layer)
 <ul>
-<li>adjust audio boundaries on timeline (insert gap, make sure audio in full for each section)</li>
+<li>adjust audio boundaries on timeline (insert gaps, make sure audio in full for each section)</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Move Interview from &ldquo;Interviews\Edited Interviews&rdquo; to &ldquo;used-in-a-script&rdquo; folder</li>
+<li>Move Interview from &ldquo;Interviews\Edited Interviews&rdquo; to &ldquo;Interviews\Used-in-a-script&rdquo; folder</li>
 </ul>
 <h3 id="export-draft-episode-audio">Export Draft Episode Audio</h3>
 <ul>
-<li>Open episode from &ldquo;Interviews\Episodes\In Progress&rdquo; folder
+<li>Open episode from &ldquo;Interviews\Episodes\In-Progress&rdquo; folder
 <ul>
 <li>Check Markers are properly labelled</li>
 <li><strong>Export - Audio</strong>
@@ -221,7 +223,7 @@
 <li>Name file &ldquo;IN-Epx.vtt&rdquo; and place into <strong>vtt-Autotag</strong> folder
 <ul>
 <li>Open &ldquo;IN-Epx.vtt&rdquo; and remove &ldquo;Descript&rdquo; text</li>
-<li>Replace all instances of &gt;: with &gt;</li>
+<li>Replace all instances of &gt;: with &gt; (Control+H - Replace All)</li>
 </ul>
 </li>
 <li>Run Auto-tag py script (to add the speaker labels that are missing in vtt file)
@@ -244,13 +246,7 @@
 <ul>
 <li>Place FINAL audio and transcripts into that folder</li>
 </ul>
-<h2 id="produce-timetext-markers-for-pinecast-show-notes-section">Produce time/text markers for Pinecast show notes section</h2>
-<ul>
-<li>Upload edited audio to <a href="https://mp3chapters.github.io/">https://mp3chapters.github.io/</a></li>
-<li>Copy markers</li>
-<li>paste into pinecast Episode Notes (see below), or keep a copy of these for later</li>
-</ul>
-<h2 id="pinecast">Pinecast</h2>
+<h2 id="pinecast-and-podcast-marker-generation">Pinecast and Podcast Marker generation</h2>
 <ul>
 <li>Title &ldquo;Interview with &hellip; &quot;</li>
 <li>Upload audio mp3</li>
@@ -259,7 +255,13 @@
 <li>Get rid of Episode Notes title
 <ul>
 <li>Paste show notes (interviewee bios)</li>
-<li>Paste Text Markers (2 spaces at end of line)</li>
+<li>Generate and Paste Text Markers (2 spaces at end of line):
+<ul>
+<li>Upload edited audio to <a href="https://mp3chapters.github.io/">https://mp3chapters.github.io/</a></li>
+<li>Copy markers</li>
+<li>paste into Pinecast Episode Notes and type 2 spaces at end of each line (markdown equivalent of newline)</li>
+</ul>
+</li>
 <li>Add Footnote credits</li>
 </ul>
 </li>

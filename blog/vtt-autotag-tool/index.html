@@ -138,7 +138,7 @@ NOTE: this python script is supplied, as is (it works for me, feel free to modif
 </li>
 <li>Install python on your PC (one-time setup)</li>
 <li>Create a <strong>vtt-Autotag</strong> folder and add the <strong>vtt-Autotag-Tool.py</strong> script there</li>
-<li><strong>Macrons are not processed well</strong> - note what line in the file those are and add back in after processing</li>
+<li><strong>Macrons are not processed well</strong> - note what line in the file those are (as ? characters) and add back in after processing</li>
 <li>Add your .vtt file (exported from Descript - with 42 character setting) into the same folder as the vtt-Autotag-Tool.py script
 <ul>
 <li>rename your .vtt input file to <strong>IN-Epx.vtt</strong> (this is what the python script expects - modify your script to suit your own workflow)</li>
@@ -159,7 +159,6 @@ NOTE: this python script is supplied, as is (it works for me, feel free to modif
 <h1 id="vtt-autotag-toolpy-script">vtt-AutoTag-Tool.py script</h1>
 <p><a href="https://github.com/bitrat/bitrat-blog-starter/tree/main/vtt-Autotag">The python script and a test .vtt file</a> (an actual Descript .vtt exported file that shows the issue the script will solve) can be downloaded from my repository on github</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>import re
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>from shutil import move
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>x = &#34;&#34;
@@ -167,35 +166,42 @@ NOTE: this python script is supplied, as is (it works for me, feel free to modif
 </span></span><span style="display:flex;"><span>filename = &#39;./IN-Epx.vtt&#39;
 </span></span><span style="display:flex;"><span>filename2 = &#39;./OUT-Epx.vtt&#39;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>fileIn = open(filename, &#34;r&#34;, encoding=&#34;utf-8&#34;)
+</span></span><span style="display:flex;"><span># Explicitly open with UTF-8 to handle special characters smoothly
+</span></span><span style="display:flex;"><span>fileIn = open(filename, &#34;r&#34;, encoding=&#34;utf-8&#34;, errors=&#39;replace&#39;)
 </span></span><span style="display:flex;"><span>readLines = fileIn.readlines()
-</span></span><span style="display:flex;"><span>print(&#34;readlines :&#34;,readLines)
+</span></span><span style="display:flex;"><span>print(&#34;readlines :&#34;, readLines)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>fileOut = open(filename2, &#39;w&#39;)
+</span></span><span style="display:flex;"><span># Explicitly open output with UTF-8 to avoid Windows cp1252 crashes
+</span></span><span style="display:flex;"><span>fileOut = open(&#34;OUT-Epx.vtt&#34;, &#34;w&#34;, encoding=&#34;utf-8&#34;)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>line_count = 0
 </span></span><span style="display:flex;"><span>digit_line = 0
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>for line in readLines:
 </span></span><span style="display:flex;"><span>    line_count += 1
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    print(line)
+</span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    if line[0:2].isdigit():
-</span></span><span style="display:flex;"><span>        digit_line=line_count
+</span></span><span style="display:flex;"><span>        digit_line = line_count
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    if (line_count == digit_line+1):
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        try:
-</span></span><span style="display:flex;"><span>            #x = re.search(r&#34;^\&lt;<span style="color:#f92672">v</span><span style="color:#960050;background-color:#1e0010">[^\(]*[</span><span style="color:#a6e22e">:</span><span style="color:#960050;background-color:#1e0010">]&#34;,</span> <span style="color:#a6e22e">line</span><span style="color:#960050;background-color:#1e0010">)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">x </span><span style="color:#f92672">=</span> <span style="color:#e6db74">re.search(r&#34;^\&lt;v[^\(]*[</span>&gt;]&#34;, line)
+</span></span><span style="display:flex;"><span>    # If this is the text line directly following a timestamp line
+</span></span><span style="display:flex;"><span>    if line_count == digit_line + 1:
+</span></span><span style="display:flex;"><span>        # Search for an existing speaker tag like &lt;<span style="color:#f92672">v</span> <span style="color:#a6e22e">Person</span>&gt;
+</span></span><span style="display:flex;"><span>        x = re.search(r&#34;^\&lt;<span style="color:#f92672">v</span><span style="color:#960050;background-color:#1e0010">[^\(]*[</span>&gt;]&#34;, line)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        if x is not None:
+</span></span><span style="display:flex;"><span>            # Found an existing tag! Update our tracker and write the line as-is
 </span></span><span style="display:flex;"><span>            currentTag = x.group(0)
 </span></span><span style="display:flex;"><span>            fileOut.write(line)
-</span></span><span style="display:flex;"><span>        except AttributeError:
-</span></span><span style="display:flex;"><span>            out = currentTag+line  
+</span></span><span style="display:flex;"><span>        else:
+</span></span><span style="display:flex;"><span>            # No tag found (like on the &#39;wh?nau&#39; line). Auto-prepend the last known tag.
+</span></span><span style="display:flex;"><span>            out = currentTag + line  
 </span></span><span style="display:flex;"><span>            fileOut.write(out)
 </span></span><span style="display:flex;"><span>    else:
 </span></span><span style="display:flex;"><span>        fileOut.write(line)
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>fileIn.close()     
-</span></span><span style="display:flex;"><span>fileOut.close()      
+</span></span><span style="display:flex;"><span>fileOut.close() 
 </span></span><span style="display:flex;"><span>     </span></span></code></pre></div>
 
 

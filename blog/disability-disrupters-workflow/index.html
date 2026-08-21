@@ -216,26 +216,17 @@
 <ul>
 <li><strong>Export - Subtitles</strong>
 <ul>
-<li>Name file &ldquo;IN-Epx.vtt&rdquo; and place into <strong>vtt-Autotag</strong> folder
-<ul>
-<li>Open &ldquo;IN-Epx.vtt&rdquo; and remove &ldquo;Descript&rdquo; text</li>
-<li>Replace all instances of &gt;:<strong>space</strong> with &gt;<strong>no space</strong> (Control+H - Replace All)</li>
-</ul>
-</li>
+<li>NOTE: Do not use Libre-office Writer for any of this, it adds bung tags, just rename the exported Descript .vtt file</li>
+<li>Name file &ldquo;IN-Epx.vtt&rdquo; and place into <strong>vtt-Autotag</strong> folder</li>
 <li>Run Auto-tag py script (to add the speaker labels that are missing in vtt file)
 <ul>
 <li>cmd.exe from vtt-Autotag folder</li>
 <li>py .\vtt-AutoTag-Tool.py</li>
 </ul>
 </li>
-<li>Rename the resultant &ldquo;Out-Expx.vtt&rdquo; file &ldquo;FINAL-Episode x - Interview with &lt;Name&gt;&rdquo;
+<li>Resultant file is &ldquo;IN-Epx - tagged.vtt&rdquo; file
 <ul>
-<li>Open &ldquo;Out-Expx.vtt&rdquo; and remove &lt;v TestPerson&gt; text</li>
-<li>Put macrons back in (if you had to remove them for script not to fail)
-<ul>
-<li>Find any ? characters that should be Māori macrons and replace those</li>
-</ul>
-</li>
+<li>rename to &ldquo;FINAL-Episode x - Interview with &lt;Name&gt;&rdquo;</li>
 </ul>
 </li>
 <li>Move .vtt file to FINAL folder</li>
@@ -277,6 +268,19 @@
 </ul>
 <h2 id="after-episode-has-been-published-after-8-hours">After Episode has been published (after 8 hours)</h2>
 <ul>
+<li>Login to Wordpress wp-admin panel
+<ul>
+<li>left hand side -&gt; Simple Podcast Press (plugin)
+<ul>
+<li>Settings
+<ul>
+<li>click &ldquo;Import New Episodes&rdquo; once. It&rsquo;ll pull in the new episode, correctly categorised, with nothing doubled up.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>check Apple podcasts (markers good ?)</li>
 <li>check DRNZ website (episode on episode lists page ?)</li>
 <li>In Descript - Move &ldquo;Episode x -Interview with &lt;Name&gt;&rdquo; folder in Descript from &ldquo;Episodes\In-Progress&quot; to &ldquo;Episodes\Released&rdquo; folder</li>

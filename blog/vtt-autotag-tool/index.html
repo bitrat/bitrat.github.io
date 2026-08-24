@@ -139,80 +139,76 @@ NOTE: this python script is supplied, as is (it works for me, feel free to modif
 <li>Install python on your PC (one-time setup)</li>
 <li>Create a <strong>vtt-Autotag</strong> folder and add the <strong>vtt-Autotag-Tool.py</strong> script there</li>
 <li><strong>Macrons are not processed well</strong> - note what line in the file those are (as ? characters) and add back in after processing</li>
-<li>Add your .vtt file (exported from Descript - with 42 character setting) into the same folder as the vtt-Autotag-Tool.py script
-<ul>
-<li>rename your .vtt input file to <strong>IN-Epx.vtt</strong> (this is what the python script expects - modify your script to suit your own workflow)</li>
-</ul>
-</li>
+<li>Add your .vtt file (exported from Descript - with 42 character setting) into the same folder as the vtt-Autotag-Tool.py script</li>
 <li>run the python script from the same folder that the IN-Epx.vtt is in
 <ul>
-<li>py .\vtt-AutoTag-Tool.py
-<ul>
-<li>NOTE: If you get an error, you might have macrons/non utf-8 unicode in your text - change the encoding type in the script</li>
+<li>py .\vtt-AutoTag-Tool.py</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>The output .vtt file will be called <strong>OUT-Epx.vtt</strong>. This is what you can upload as a Pinecast transcript</li>
-<li>Add macrons back in</li>
+<li>The output .vtt file will be called <strong>xxxx -tagged.vtt</strong>. This is what you can upload as a Pinecast transcript</li>
 </ul>
 <h1 id="vtt-autotag-toolpy-script">vtt-AutoTag-Tool.py script</h1>
 <p><a href="https://github.com/bitrat/bitrat-blog-starter/tree/main/vtt-Autotag">The python script and a test .vtt file</a> (an actual Descript .vtt exported file that shows the issue the script will solve) can be downloaded from my repository on github</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&#34;&#34;&#34;
-</span></span><span style="display:flex;"><span>One-step VTT prep for the Disruptors podcast transcripts.
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>Replaces the old three-step workflow that was corrupting macrons:
-</span></span><span style="display:flex;"><span>    1. open in LibreOffice Writer, delete the Descript NOTE line
-</span></span><span style="display:flex;"><span>    2. Find <span style="color:#960050;background-color:#1e0010">&amp;</span> Replace &#34;&gt;: &#34; -&gt; &#34;&gt;&#34;
-</span></span><span style="display:flex;"><span>    3. run the auto-tag script
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>Step 1-2 in Writer were the problem: saving a .vtt out of a WORD PROCESSOR
-</span></span><span style="display:flex;"><span>re-encodes it through your system codepage (usually Windows-1252), and macrons
-</span></span><span style="display:flex;"><span>(ā ē ī ō ū) don&#39;t exist in that codepage, so they were being flattened to &#34;?&#34;.
-</span></span><span style="display:flex;"><span>This script does all three edits in Python with UTF-8 in and UTF-8 out, so the
-</span></span><span style="display:flex;"><span>macrons and ellipses (…) survive untouched. LibreOffice is no longer in the loop.
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>Usage:
-</span></span><span style="display:flex;"><span>    python3 vtt_autotag.py
-</span></span><span style="display:flex;"><span>        -&gt; tags EVERY *.vtt in the current folder, writing &#34;&lt;<span style="color:#f92672">name</span>&gt; - tagged.vtt&#34;
-</span></span><span style="display:flex;"><span>           (skips files already ending in &#34; - tagged.vtt&#34;)
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>    python3 vtt_autotag.py &#34;Episode 26.vtt&#34;
-</span></span><span style="display:flex;"><span>        -&gt; writes &#34;Episode 26 - tagged.vtt&#34;
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>    python3 vtt_autotag.py &#34;in.vtt&#34; &#34;out.vtt&#34;
-</span></span><span style="display:flex;"><span>        -&gt; explicit input and output
+</span></span><span style="display:flex;"><span>VTT auto-tagger for the Disruptors podcast transcripts.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>What it guarantees:
+</span></span><span style="display:flex;"><span>  * KEEPS every &lt;<span style="color:#f92672">v</span> <span style="color:#a6e22e">Speaker</span>&gt; voice tag. It removes ONLY the &#34;: &#34; that Descript
+</span></span><span style="display:flex;"><span>    writes after the tag, turning &#34;&lt;<span style="color:#f92672">v</span> <span style="color:#a6e22e">Dr</span> <span style="color:#a6e22e">Pam</span>&gt;: Hi&#34; into &#34;&lt;<span style="color:#f92672">v</span> <span style="color:#a6e22e">Dr</span> <span style="color:#a6e22e">Pam</span>&gt;Hi&#34;.
+</span></span><span style="display:flex;"><span>  * Carries the last-seen &lt;<span style="color:#f92672">v</span> <span style="color:#a6e22e">Speaker</span>&gt; tag onto Descript&#39;s untagged
+</span></span><span style="display:flex;"><span>    continuation cues, so EVERY cue starts with a speaker tag.
+</span></span><span style="display:flex;"><span>  * Reads and writes UTF-8, so macrons (ā ē ī ō ū) and ellipses (…) survive.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Run it with no arguments in the folder with your .vtt files, or pass a filename.
 </span></span><span style="display:flex;"><span>&#34;&#34;&#34;
-</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>import glob
 </span></span><span style="display:flex;"><span>import os
 </span></span><span style="display:flex;"><span>import re
 </span></span><span style="display:flex;"><span>import sys
-</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>OUT_SUFFIX = &#34; - tagged.vtt&#34;
-</span></span><span style="display:flex;"><span> 
 </span></span><span style="display:flex;"><span>DEFAULT_TAG = &#34;&lt;<span style="color:#f92672">v</span> <span style="color:#a6e22e">Speaker</span>&gt;&#34;
 </span></span><span style="display:flex;"><span>TAG_RE = re.compile(r&#34;^&lt;<span style="color:#f92672">v</span><span style="color:#960050;background-color:#1e0010">[^</span>&gt;]*&gt;&#34;)     # a voice tag at the start of a line
 </span></span><span style="display:flex;"><span>TS_RE = re.compile(r&#34;^\d{2}:\d{2}&#34;)    # a cue-timing line
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Recovery table for files already damaged by a non-UTF-8 save.
+</span></span><span style="display:flex;"><span>BYTE_FIXES = {&#34;\xa6&#34;: &#34;…&#34;, &#34;\x8a&#34;: &#34;…&#34;}   # stray bytes were ellipses
+</span></span><span style="display:flex;"><span>MACRON_FIXES = {
+</span></span><span style="display:flex;"><span>    &#34;M?ori&#34;: &#34;Māori&#34;, &#34;wh?nau&#34;: &#34;whānau&#34;, &#34;Wh?nau&#34;: &#34;Whānau&#34;,
+</span></span><span style="display:flex;"><span>    &#34;K?piti&#34;: &#34;Kāpiti&#34;, &#34;M?nawatia&#34;: &#34;Mānawatia&#34;, &#34;M?ngere&#34;: &#34;Māngere&#34;,
+</span></span><span style="display:flex;"><span>    &#34;k?inga&#34;: &#34;kāinga&#34;,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def read_text(path):
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;Return clean text. Prefer UTF-8; if the file is already damaged,
+</span></span><span style="display:flex;"><span>    fall back to a lossless read + repair rather than crashing.&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    raw = open(path, &#34;rb&#34;).read()
+</span></span><span style="display:flex;"><span>    try:
+</span></span><span style="display:flex;"><span>        return raw.decode(&#34;utf-8&#34;), False
+</span></span><span style="display:flex;"><span>    except UnicodeDecodeError:
+</span></span><span style="display:flex;"><span>        text = raw.decode(&#34;latin-1&#34;)           # 1:1, never fails
+</span></span><span style="display:flex;"><span>        for bad, good in BYTE_FIXES.items():
+</span></span><span style="display:flex;"><span>            text = text.replace(bad, good)
+</span></span><span style="display:flex;"><span>        for bad, good in MACRON_FIXES.items():
+</span></span><span style="display:flex;"><span>            text = text.replace(bad, good)
+</span></span><span style="display:flex;"><span>        return text, True
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>def strip_descript_note(text):
-</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;Remove the &#39;NOTE\\nThis file was generated by Descript ...&#39; block.&#34;&#34;&#34;
 </span></span><span style="display:flex;"><span>    return re.sub(
 </span></span><span style="display:flex;"><span>        r&#34;^NOTE\r?\n[^\r\n]*[Dd]escript[^\r\n]*\r?\n(\r?\n)?&#34;,
-</span></span><span style="display:flex;"><span>        &#34;&#34;,
-</span></span><span style="display:flex;"><span>        text,
-</span></span><span style="display:flex;"><span>        flags=re.MULTILINE,
+</span></span><span style="display:flex;"><span>        &#34;&#34;, text, flags=re.MULTILINE,
 </span></span><span style="display:flex;"><span>    )
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>def strip_tag_colon(text):
-</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;Replace &#39;&lt;<span style="color:#f92672">v</span> <span style="color:#a6e22e">Name</span>&gt;: &#39; with &#39;&lt;<span style="color:#f92672">v</span> <span style="color:#a6e22e">Name</span>&gt;&#39; (your old Find <span style="color:#960050;background-color:#1e0010">&amp;</span> Replace of &#39;&gt;: &#39;).&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;&#39;&lt;<span style="color:#f92672">v</span> <span style="color:#a6e22e">Name</span>&gt;: &#39; -&gt; &#39;&lt;<span style="color:#f92672">v</span> <span style="color:#a6e22e">Name</span>&gt;&#39;  (removes the colon, KEEPS the tag).&#34;&#34;&#34;
 </span></span><span style="display:flex;"><span>    return text.replace(&#34;&gt;: &#34;, &#34;&gt;&#34;)
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>def fill_tags(lines, default_tag=DEFAULT_TAG):
-</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;Carry the last-seen speaker tag onto untagged continuation cues.&#34;&#34;&#34;
 </span></span><span style="display:flex;"><span>    current_tag = default_tag
 </span></span><span style="display:flex;"><span>    out = []
 </span></span><span style="display:flex;"><span>    prev_was_timestamp = False
@@ -224,58 +220,49 @@ NOTE: this python script is supplied, as is (it works for me, feel free to modif
 </span></span><span style="display:flex;"><span>        if prev_was_timestamp:
 </span></span><span style="display:flex;"><span>            m = TAG_RE.match(line)
 </span></span><span style="display:flex;"><span>            if m:
-</span></span><span style="display:flex;"><span>                current_tag = m.group(0)
-</span></span><span style="display:flex;"><span>                out.append(line)
+</span></span><span style="display:flex;"><span>                current_tag = m.group(0)   # remember the &lt;<span style="color:#f92672">v</span> <span style="color:#a6e22e">Speaker</span>&gt; prefix
+</span></span><span style="display:flex;"><span>                out.append(line)           # keep the tagged line as-is
 </span></span><span style="display:flex;"><span>            else:
-</span></span><span style="display:flex;"><span>                out.append(current_tag + line)
+</span></span><span style="display:flex;"><span>                out.append(current_tag + line)   # tag the continuation cue
 </span></span><span style="display:flex;"><span>        else:
 </span></span><span style="display:flex;"><span>            out.append(line)
 </span></span><span style="display:flex;"><span>        prev_was_timestamp = False
 </span></span><span style="display:flex;"><span>    return out
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>def tag_one(in_file, out_file):
-</span></span><span style="display:flex;"><span>    # Strict UTF-8. If Descript ever changes and this raises UnicodeDecodeError,
-</span></span><span style="display:flex;"><span>    # fix the source encoding — never add errors=&#39;replace&#39;, it destroys macrons.
-</span></span><span style="display:flex;"><span>    with open(in_file, &#34;r&#34;, encoding=&#34;utf-8&#34;) as f:
-</span></span><span style="display:flex;"><span>        text = f.read()
+</span></span><span style="display:flex;"><span>    text, repaired = read_text(in_file)
 </span></span><span style="display:flex;"><span>    text = strip_descript_note(text)
 </span></span><span style="display:flex;"><span>    text = strip_tag_colon(text)
 </span></span><span style="display:flex;"><span>    fixed = fill_tags(text.splitlines(keepends=True))
-</span></span><span style="display:flex;"><span>    with open(out_file, &#34;w&#34;, encoding=&#34;utf-8&#34;, newline=&#34;&#34;) as f:
-</span></span><span style="display:flex;"><span>        f.writelines(fixed)
-</span></span><span style="display:flex;"><span>    print(f&#34;  {in_file}  -&gt;  {out_file}  ({len(fixed)} lines)&#34;)
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    tags = sum(1 for l in fixed if l.startswith(&#34;&lt;<span style="color:#f92672">v</span> <span style="color:#960050;background-color:#1e0010">&#34;))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">with</span> <span style="color:#a6e22e">open</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">out_file</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">w</span><span style="color:#960050;background-color:#1e0010">&#34;,</span> <span style="color:#a6e22e">encoding</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">newline</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">f:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">f</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">writelines</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">fixed</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">note </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;  [repaired damaged input]&#34;</span> <span style="color:#a6e22e">if</span> <span style="color:#a6e22e">repaired</span> <span style="color:#a6e22e">else</span> <span style="color:#960050;background-color:#1e0010">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">print</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">f</span><span style="color:#960050;background-color:#1e0010">&#34;</span>  <span style="color:#960050;background-color:#1e0010">{</span><span style="color:#a6e22e">in_file</span><span style="color:#960050;background-color:#1e0010">}</span>  <span style="color:#a6e22e">-</span>&gt;  {out_file}  ({len(fixed)} lines, {tags} tagged){note}&#34;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>def default_out(in_file):
 </span></span><span style="display:flex;"><span>    return os.path.splitext(in_file)[0] + OUT_SUFFIX
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>def main():
 </span></span><span style="display:flex;"><span>    args = sys.argv[1:]
-</span></span><span style="display:flex;"><span> 
 </span></span><span style="display:flex;"><span>    if len(args) &gt;= 2:
-</span></span><span style="display:flex;"><span>        # explicit input + output
-</span></span><span style="display:flex;"><span>        tag_one(args[0], args[1])
-</span></span><span style="display:flex;"><span>        return
-</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>        tag_one(args[0], args[1]); return
 </span></span><span style="display:flex;"><span>    if len(args) == 1:
-</span></span><span style="display:flex;"><span>        # one input, auto-named output
-</span></span><span style="display:flex;"><span>        tag_one(args[0], default_out(args[0]))
-</span></span><span style="display:flex;"><span>        return
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>    # no args: tag every .vtt in the current folder
+</span></span><span style="display:flex;"><span>        tag_one(args[0], default_out(args[0])); return
 </span></span><span style="display:flex;"><span>    inputs = [f for f in sorted(glob.glob(&#34;*.vtt&#34;)) if not f.endswith(OUT_SUFFIX)]
 </span></span><span style="display:flex;"><span>    if not inputs:
-</span></span><span style="display:flex;"><span>        sys.exit(&#34;No .vtt files found in this folder. &#34;
-</span></span><span style="display:flex;"><span>                 &#34;Put this script next to your transcripts, or pass a filename.&#34;)
+</span></span><span style="display:flex;"><span>        sys.exit(&#34;No .vtt files found here. Put this script next to your &#34;
+</span></span><span style="display:flex;"><span>                 &#34;transcripts, or pass a filename.&#34;)
 </span></span><span style="display:flex;"><span>    print(f&#34;Tagging {len(inputs)} file(s):&#34;)
 </span></span><span style="display:flex;"><span>    for in_file in inputs:
 </span></span><span style="display:flex;"><span>        tag_one(in_file, default_out(in_file))
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>if __name__ == &#34;__main__&#34;:
-</span></span><span style="display:flex;"><span>    main() 
+</span></span><span style="display:flex;"><span>    main()
 </span></span><span style="display:flex;"><span>     </span></span></code></pre></div>
 
 
